@@ -1,0 +1,39 @@
+/**
+ * TorinoJS
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+body, div, p, pre, span, a {
+	font-family: 'Share Tech Mono', 'Monospace';
+}
+body {
+	background: #f3de17;
+	font-size: large;
+}
+.container {
+	height: 500px;
+}
+pre {
+	overflow: auto;
+}
+pre.important {
+	padding: 7px;
+	background: #444;
+	color: #ddd;
+}
+pre .exec {
+	color: #f3de17;
+}
+.box {
+	padding-left: 5px;
+	padding-right: 5px; 
+}
+.expand {
+	width: 100%;
+}

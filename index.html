@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TorinoJS - #jsNight javascript Torino</title>
-    <!-- OG stuff metatags -->
-    <meta property="og:title" content="TorinoJS" />
-    <meta property="og:url" content="https://torinojs.github.io" />
-    <meta property="og:image" content="https://cloud.githubusercontent.com/assets/8074/6993893/1adb409e-db05-11e4-9afb-b51b920f6e5a.png" />
-    <meta property="og:locale" content="it_IT" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta name="author" content="Luigi Maselli">
-    <meta name="description" content="Il sito ufficiale della comunità javascript a Torino" />
+	<title>TorinoJS - #jsNight javascript Torino</title>
 
+	<meta property="og:title" content="TorinoJS" />
+	<meta property="og:url" content="https://torinojs.github.io" />
+	<meta property="og:image" content="torino-js-big.png" />
+	<meta property="og:locale" content="it_IT" />
+	<meta property="og:locale:alternate" content="en_US" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="Luigi Maselli" />
+	<meta name="description" content="Il sito ufficiale della comunità javascript a Torino" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="/apple-icon-precomposed.png">
-
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/flexboxgrid/6.1.1/flexboxgrid.min.css" type="text/css" />
-    <link href='//fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-      * {
-        font-family: 'Share Tech Mono', 'Monospace';
-      }
-      body {
-        background: rgb(243, 222, 23);
-        font-size: large;
-      }
-      pre { overflow:auto; }
-      .box {
-        padding-left: 5px;
-        padding-right: 5px; 
-      }
-    </style>
+	<link rel="icon" type="image/png" href="torino-js-favicon.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="torino-js-precomposed.png" />
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/flexboxgrid/6.1.1/flexboxgrid.min.css" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Share+Tech+Mono" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-
 <body>
-    <div class="row around-xs middle-md" style="height:500px;">
-        <div class="col-md-3">
-          <div class="box">
-            <img src="https://cloud.githubusercontent.com/assets/8074/6993893/1adb409e-db05-11e4-9afb-b51b920f6e5a.png" style="width:100%;"/>
-          </div>
-        </div>
-        <div class="col-md-7 col-xs-12">
-            <div class="box">
-              <h1>TorinoJS</h1>
-<pre style="padding:7px;background:#404040;color:#dedede">_.each( Random.time(), (people) <span style="color:#ffffa0">=</span><span style="color:#ffffa0">></span> {
-    <span style="color:#f09040">console</span>.log(`<span style="color:#ffffa0">$</span>{people} meet at
-          #jsNight for <span style="color:#ffffa0">$</span>{code <span style="color:#ffffa0">&amp;&amp;</span> blabla <span style="color:#ffffa0">&amp;&amp;</span> (pizza <span style="color:#ffffa0">&amp;</span><span style="color:#ffffa0">&amp;</span> beer) }`);
+<div class="row around-xs middle-md container expand">
+	<div class="col-md-3">
+		<div class="box">
+			<img class="expand" src="torino-js-big.png" alt="TorinoJS logo" />
+		</div>
+	</div>
+	<div class="col-md-7 col-xs-12">
+		<div class="box">
+			<h1>TorinoJS</h1>
+<pre class="important">
+_.each( Random.time(), (people) <span class="exec">=></span> {
+	<span style="color:#f09040">console</span>.log(`<span class="exec">$</span>{people} meet at
+		#jsNight for <span class="exec">$</span>{code <span class="exec">&amp;&amp;</span> blabla <span class="exec">&amp;&amp;</span> (pizza <span class="exec">&amp;&amp;</span> beer) }`);
 });
 </pre>
-
 <pre>
-// Async events about javascript, nodejs, IoT, and
-// open source web techologies in Torino
+// Async events about JavaScript, NodeJS, IoT, and
+// Free/Libre and Open Source web techologies in Torino.
 //
-// Website:    <a href="https://torinojs.github.io">torinojs.github.io</a>
-// Next #jsNight: 11mar2016 - <a href="https://www.eventbrite.it/e/biglietti-torinojs-jsnight-11mar2015-incontro-su-javascript-e-tecnologie-web-open-source-20985199296">Info e registrazione</a>
-// Issues: <a href="https://github.com/TorinoJS/discussion">github.com/TorinoJS/discussion</a>
-// Chat: <a href="https://gitter.im/TorinoJS/chat">gitter.im/TorinoJS/chat</a>
-// Twitter:    <a href="https://twitter.com/torinojs">@TorinoJS</a>
-<a href="https://github.com/TorinoJS/torinojs.github.io">source</a>
+// Website: <a href="https://torinojs.github.io" title="TorinoJS Homepage">torinojs.github.io</a>
+// Next #jsNight: <time datetime="2016-03-11">11 mar 2016</time> - <a href="https://www.eventbrite.it/e/biglietti-torinojs-jsnight-11mar2015-incontro-su-javascript-e-tecnologie-web-open-source-20985199296" title="TorinoJS at EventBrite">Info e registrazione</a>
+// Issues: <a href="https://github.com/TorinoJS/discussion" title="More about TorinoJS">github.com/TorinoJS/discussion</a>
+// Chat: <a href="https://gitter.im/TorinoJS/chat" title="TorinoJS/chat">gitter.im/TorinoJS/chat</a>
+// Twitter: <a href="https://twitter.com/torinojs" title="@TorinoJS on Twitter">@TorinoJS</a>
+// <a href="https://github.com/TorinoJS/torinojs.github.io" title="TorinoJS at GitHub">Source code</a> under MIT license
 </pre>
-            </div>
-        </div>
-    </div>
-<script type="text/javascript" src="//cdn.jsdelivr.net/cookie-bar/1/cookiebar-latest.js"></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-40601149-15', 'auto');
-    ga('send', 'pageview');
-  </script>
+		</div>
+	</div>
+</div>
+<!-- ___________________________________________________
+  * /
+  * | TorinoJS loves Free as in Freedom JavaScript code,
+  * | so Google ANALytics is NOT our best friend.
+  * |
+  * | Do you like our choice? Let's join TorinoJS:
+  * |
+  * | https://gitter.im/TorinoJS/chat
+  * |
+  * \___________________________________________________
+  *	    \               ,......_
+  *	  .  \         .  ,'        `-.__,......._
+  *	 //   \      __\\'                        `-.
+  *	((    _____-'___))                           |
+  *	 `:='/     (alf_/                            |
+  *	 `.=|      |='                               |
+  *	    |)   O |                                  \
+  *	    |      |                               /\  \
+  *	    |     /                          .    /  \  \
+  *	    |    .-..__            ___   ...' \  |\   \  |
+  *	   |o o  |     ``...___.  /   `-'      \  \\   \ |
+  *	    `..''        '  .' / /             |  | |   | \
+  *		         |  | / /              |  | |   mmm
+  *		         |  ||  |              | /| |
+  *		         ( .' \ \              || | |
+  *		         | |   \ \            // / /
+  *		         | |    \ \          || |_|
+  *		        /  |    |_/         /_|
+  *		       /__/
+  *
+  -->
 </body>
-
 </html>
