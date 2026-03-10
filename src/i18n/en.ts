@@ -212,8 +212,6 @@ const en: Translations = {
     viewOnGitHub: 'View on GitHub',
     voteOnGitHub: 'Vote on GitHub',
     poweredByGitHub: 'Discussions synced from GitHub',
-    openIssue: 'Open',
-    closedIssue: 'Closed',
     comments: 'comments',
     comment: 'comment',
     votes: 'votes',

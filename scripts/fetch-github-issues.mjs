@@ -111,15 +111,15 @@ function mapIssue(issue) {
 async function main() {
   console.log(`Fetching issues from ${REPO_OWNER}/${REPO_NAME}...`)
 
-  // Fetch all issues (open + closed), including reactions
+  // Fetch only open issues (closed issues are not displayed on the website)
   const issues = await fetchAllPages(
-    `${API_BASE}/issues?state=all&per_page=100&sort=created&direction=desc`
+    `${API_BASE}/issues?state=open&per_page=100&sort=created&direction=desc`
   )
 
   // Filter out pull requests (GitHub API returns PRs mixed with issues)
   const realIssues = issues.filter((i) => !i.pull_request)
 
-  console.log(`Fetched ${realIssues.length} issues (excluding PRs).`)
+  console.log(`Fetched ${realIssues.length} open issues (excluding PRs).`)
 
   // Fetch all labels
   const labelsResponse = await ghFetch(`${API_BASE}/labels`)

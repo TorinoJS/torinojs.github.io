@@ -210,8 +210,6 @@ const it = {
     viewOnGitHub: 'Vedi su GitHub',
     voteOnGitHub: 'Vota su GitHub',
     poweredByGitHub: 'Discussioni sincronizzate da GitHub',
-    openIssue: 'Aperta',
-    closedIssue: 'Chiusa',
     comments: 'commenti',
     comment: 'commento',
     votes: 'voti',

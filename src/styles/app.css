@@ -1161,14 +1161,6 @@ img {
   box-shadow: 0 0 0 1px rgba(249, 230, 79, 0.1);
 }
 
-.issue-card--closed {
-  opacity: 0.6;
-}
-
-.issue-card--closed:hover {
-  opacity: 0.85;
-}
-
 /* Vote column */
 .issue-card-vote {
   display: flex;
@@ -1206,6 +1198,19 @@ img {
   color: var(--color-accent);
 }
 
+.issue-vote-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity var(--transition);
+  white-space: nowrap;
+}
+
+.issue-vote-btn:hover .issue-vote-label {
+  opacity: 1;
+}
+
 /* Content column */
 .issue-card-content {
   flex: 1;
@@ -1232,29 +1237,6 @@ img {
 
 .issue-card-title:hover {
   color: var(--color-accent);
-}
-
-.issue-state-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.15rem 0.5rem;
-  border-radius: 20px;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-.issue-state-badge--open {
-  background: rgba(74, 222, 128, 0.15);
-  color: var(--color-success);
-}
-
-.issue-state-badge--closed {
-  background: rgba(160, 160, 176, 0.15);
-  color: var(--color-text-muted);
 }
 
 .issue-card-body {

@@ -15,11 +15,10 @@ import {
 function IssueCard({ issue, index }: { issue: GitHubIssue; index: number }) {
   const { locale, t } = useLocale()
   const score = getUpvoteScore(issue)
-  const isClosed = issue.state === 'closed'
 
   return (
     <Reveal at={0} animation="fade-up" duration={400} delay={index * 80}>
-      <div className={`issue-card ${isClosed ? 'issue-card--closed' : ''}`}>
+      <div className="issue-card">
         <div className="issue-card-vote">
           <a
             href={issue.url}
@@ -43,9 +42,6 @@ function IssueCard({ issue, index }: { issue: GitHubIssue; index: number }) {
             >
               {issue.title}
             </a>
-            <span className={`issue-state-badge issue-state-badge--${issue.state}`}>
-              {isClosed ? t.community.closedIssue : t.community.openIssue}
-            </span>
           </div>
 
           {issue.body && (

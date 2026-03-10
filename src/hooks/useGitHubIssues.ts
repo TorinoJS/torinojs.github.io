@@ -157,16 +157,17 @@ export function useGitHubIssues(): UseGitHubIssuesReturn {
 
   const getIssuesByLabel = useMemo(() => {
     if (!data) return (_label: string) => [] as GitHubIssue[]
-    return (labelName: string) => data.issues.filter((i) => i.labels.includes(labelName))
+    return (labelName: string) =>
+      data.issues.filter((i) => i.state === 'open' && i.labels.includes(labelName))
   }, [data])
 
   const getUnlabeledIssues = useMemo(() => {
     if (!data) return () => [] as GitHubIssue[]
-    return () => data.issues.filter((i) => i.labels.length === 0)
+    return () => data.issues.filter((i) => i.state === 'open' && i.labels.length === 0)
   }, [data])
 
   return {
-    issues: data?.issues ?? [],
+    issues: data?.issues.filter((i) => i.state === 'open') ?? [],
     labels: data?.labels ?? [],
     loading,
     error,
