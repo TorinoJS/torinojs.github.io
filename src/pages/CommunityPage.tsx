@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useLocale } from '~/i18n/context'
-import { Kino, Reveal } from 'react-kino'
 import { Calendar } from 'lucide-react'
 import {
   GithubLogo,
@@ -131,7 +130,7 @@ export function CommunityPage() {
   ]
 
   return (
-    <Kino>
+    <>
       {/* Tab Navigation */}
       <div className="community-tabs">
         <div className="community-tabs-inner">
@@ -154,31 +153,28 @@ export function CommunityPage() {
           <section className="section">
             <div className="section-inner">
               <div className="section-header">
-                <Reveal at={0} animation="fade-up" duration={600}>
-                  <h2>{t.community.howToConnect}</h2>
-                  <p>{t.community.howToConnectSub}</p>
-                </Reveal>
+                <h2>{t.community.howToConnect}</h2>
+                <p>{t.community.howToConnectSub}</p>
               </div>
 
               <div className="cards-grid">
-                {getConnectContacts().map((contact, index) => {
+                {getConnectContacts().map((contact) => {
                   const { title, description } = getContactI18n(contact.id, t)
                   return (
-                    <Reveal key={contact.id} at={0} animation="fade-up" duration={500} delay={index * 150}>
-                      <a
-                        href={contact.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="card"
-                        style={{ textDecoration: 'none' }}
-                      >
-                        <div className="card-icon">
-                          <ContactIcon type={contact.type} />
-                        </div>
-                        <h3>{title}</h3>
-                        <p>{description}</p>
-                      </a>
-                    </Reveal>
+                    <a
+                      key={contact.id}
+                      href={contact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="card"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <div className="card-icon">
+                        <ContactIcon type={contact.type} />
+                      </div>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                    </a>
                   )
                 })}
               </div>
@@ -191,72 +187,58 @@ export function CommunityPage() {
           <section className="section">
             <div className="section-inner">
               <div className="section-header">
-                <Reveal at={0} animation="fade-up" duration={600}>
-                  <h2>{t.community.getInvolved}</h2>
-                  <p>{t.community.getInvolvedSub}</p>
-                </Reveal>
+                <h2>{t.community.getInvolved}</h2>
+                <p>{t.community.getInvolvedSub}</p>
               </div>
 
               <div className="cards-grid">
-                <Reveal at={0} animation="fade-up" duration={500} delay={0}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <Megaphone size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.speakTitle}</h3>
-                    <p>{t.community.speakDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <Megaphone size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.speakTitle}</h3>
+                  <p>{t.community.speakDesc}</p>
+                </div>
 
-                <Reveal at={0} animation="fade-up" duration={500} delay={100}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <Wrench size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.hostWorkshop}</h3>
-                    <p>{t.community.hostWorkshopDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <Wrench size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.hostWorkshop}</h3>
+                  <p>{t.community.hostWorkshopDesc}</p>
+                </div>
 
-                <Reveal at={0} animation="fade-up" duration={500} delay={200}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <HandHeart size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.volunteer}</h3>
-                    <p>{t.community.volunteerDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <HandHeart size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.volunteer}</h3>
+                  <p>{t.community.volunteerDesc}</p>
+                </div>
 
-                <Reveal at={0} animation="fade-up" duration={500} delay={300}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <CurrencyCircleDollar size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.sponsor}</h3>
-                    <p>{t.community.sponsorDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <CurrencyCircleDollar size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.sponsor}</h3>
+                  <p>{t.community.sponsorDesc}</p>
+                </div>
 
-                <Reveal at={0} animation="fade-up" duration={500} delay={400}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <Student size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.mentor}</h3>
-                    <p>{t.community.mentorDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <Student size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.mentor}</h3>
+                  <p>{t.community.mentorDesc}</p>
+                </div>
 
-                <Reveal at={0} animation="fade-up" duration={500} delay={500}>
-                  <div className="card">
-                    <div className="card-icon">
-                      <ShareNetwork size={36} weight="duotone" />
-                    </div>
-                    <h3>{t.community.spreadWord}</h3>
-                    <p>{t.community.spreadWordDesc}</p>
+                <div className="card">
+                  <div className="card-icon">
+                    <ShareNetwork size={36} weight="duotone" />
                   </div>
-                </Reveal>
+                  <h3>{t.community.spreadWord}</h3>
+                  <p>{t.community.spreadWordDesc}</p>
+                </div>
               </div>
             </div>
           </section>
@@ -267,20 +249,16 @@ export function CommunityPage() {
           <section className="section">
             <div className="section-inner">
               <div className="section-header">
-                <Reveal at={0} animation="fade-up" duration={600}>
-                  <ChatCircleDots size={32} weight="duotone" className="section-header-icon" />
-                  <h2>{t.community.discussionsTitle}</h2>
-                  <p>{t.community.discussionsSub}</p>
-                </Reveal>
+                <ChatCircleDots size={32} weight="duotone" className="section-header-icon" />
+                <h2>{t.community.discussionsTitle}</h2>
+                <p>{t.community.discussionsSub}</p>
               </div>
 
               {loading ? (
-                <Reveal at={0} animation="fade-up" duration={400}>
-                  <div className="discussions-loading">
-                    <GithubLogo size={32} weight="duotone" />
-                    <p>{t.community.loadingDiscussions}</p>
-                  </div>
-                </Reveal>
+                <div className="discussions-loading">
+                  <GithubLogo size={32} weight="duotone" />
+                  <p>{t.community.loadingDiscussions}</p>
+                </div>
               ) : (
                 <>
                   {SECTION_CONFIGS.map((config) => {
@@ -317,20 +295,18 @@ export function CommunityPage() {
 
       {/* CTA - always visible */}
       <section className="cta-section">
-        <Reveal at={0} animation="fade-up" duration={600}>
-          <h2>{t.community.joinNextEvent}</h2>
-          <p>{t.community.joinNextEventDesc}</p>
-          <a
-            href={getProposeTalkUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            <Calendar size={18} />
-            {t.community.viewUpcoming}
-          </a>
-        </Reveal>
+        <h2>{t.community.joinNextEvent}</h2>
+        <p>{t.community.joinNextEventDesc}</p>
+        <a
+          href={getProposeTalkUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          <Calendar size={18} />
+          {t.community.viewUpcoming}
+        </a>
       </section>
-    </Kino>
+    </>
   )
 }
