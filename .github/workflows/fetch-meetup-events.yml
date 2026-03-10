@@ -1,0 +1,46 @@
+name: Fetch Meetup Events
+
+on:
+  schedule:
+    # Run daily at 08:00 UTC (09:00 CET / 10:00 CEST)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-events:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: feature/tanstack
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch Meetup iCal feed
+        run: node scripts/fetch-meetup-events.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet public/meetup-events.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/meetup-events.json
+          git commit -m "chore(events): sync Meetup events from iCal feed"
+          git push
