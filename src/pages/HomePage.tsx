@@ -13,6 +13,7 @@ import {
   ChatTeardropDots,
   Lightning,
 } from '@phosphor-icons/react'
+import { NextEventBanner } from '~/components/NextEventBanner'
 
 export function HomePage() {
   const { locale, t } = useLocale()
@@ -93,6 +94,13 @@ export function HomePage() {
           </section>
         )}
       </Scene>
+
+      {/* Next Event Banner (live from Meetup) */}
+      <section className="section">
+        <div className="section-inner">
+          <NextEventBanner />
+        </div>
+      </section>
 
       {/* Tech Marquee */}
       <div className="marquee-section">

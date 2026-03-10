@@ -1,71 +1,64 @@
 import { useLocale } from '~/i18n/context'
 import { Kino, Scene, Reveal } from 'react-kino'
-import { MapPin, Clock, Tag } from 'lucide-react'
-import { Microphone } from '@phosphor-icons/react'
+import { MapPin, Clock, ExternalLink } from 'lucide-react'
+import { Microphone, CalendarCheck } from '@phosphor-icons/react'
+import {
+  useMeetupEvents,
+  formatEventDate,
+  formatEventTimeRange,
+  extractDateParts,
+  type MeetupEvent,
+} from '~/hooks/useMeetupEvents'
+
+function EventCard({
+  event,
+  locale,
+  index,
+}: {
+  event: MeetupEvent
+  locale: 'it' | 'en'
+  index: number
+}) {
+  const { month, day } = extractDateParts(event.start, locale)
+  const timeRange = formatEventTimeRange(event.start, event.end, locale)
+
+  return (
+    <Reveal at={0} animation="fade-up" duration={500} delay={index * 120}>
+      <a
+        href={event.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="event-card event-card--link"
+      >
+        <div className="event-date">
+          <div className="month">{month}</div>
+          <div className="day">{day}</div>
+        </div>
+        <div className="event-info">
+          <h3>{event.title}</h3>
+          {event.description && <p>{event.description}</p>}
+          <div className="event-meta">
+            <span>
+              <Clock size={14} /> {timeRange}
+            </span>
+            {event.location && (
+              <span>
+                <MapPin size={14} /> {event.location}
+              </span>
+            )}
+            <span className="event-meetup-link">
+              <ExternalLink size={14} /> Meetup
+            </span>
+          </div>
+        </div>
+      </a>
+    </Reveal>
+  )
+}
 
 export function EventsPage() {
   const { locale, t } = useLocale()
-
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: t.events.event1Title,
-      description: t.events.event1Desc,
-      date: '2026-04-15',
-      month: 'APR',
-      day: '15',
-      location: 'Toolbox Coworking, Torino',
-      time: '19:00 - 22:00',
-      type: t.events.meetup,
-    },
-    {
-      id: 2,
-      title: t.events.event2Title,
-      description: t.events.event2Desc,
-      date: '2026-05-10',
-      month: 'MAY',
-      day: '10',
-      location: 'OGR Torino',
-      time: '14:00 - 18:00',
-      type: t.events.workshop,
-    },
-    {
-      id: 3,
-      title: t.events.event3Title,
-      description: t.events.event3Desc,
-      date: '2026-06-17',
-      month: 'JUN',
-      day: '17',
-      location: 'Toolbox Coworking, Torino',
-      time: '19:00 - 22:00',
-      type: t.events.meetup,
-    },
-  ]
-
-  const pastEvents = [
-    {
-      id: 101,
-      title: t.events.event4Title,
-      description: t.events.event4Desc,
-      date: '2026-02-18',
-      month: 'FEB',
-      day: '18',
-      location: 'Toolbox Coworking, Torino',
-      time: '19:00 - 22:00',
-      type: t.events.meetup,
-    },
-    {
-      id: 102,
-      title: t.events.event5Title,
-      description: t.events.event5Desc,
-      date: '2026-01-22',
-      month: 'JAN',
-      day: '22',
-      location: 'OGR Torino',
-      time: '14:00 - 18:00',
-      type: t.events.workshop,
-    },
-  ]
+  const { upcoming, past, loading, groupUrl } = useMeetupEvents()
 
   return (
     <Kino>
@@ -80,75 +73,89 @@ export function EventsPage() {
         )}
       </Scene>
 
+      {/* Upcoming Events */}
       <section className="section">
         <div className="section-inner">
           <div className="section-header">
             <h2>{t.events.upcoming}</h2>
           </div>
 
-          {upcomingEvents.map((event, i) => (
-            <Reveal key={event.id} at={0} animation="fade-up" duration={500} delay={i * 120}>
-              <div className="event-card">
-                <div className="event-date">
-                  <div className="month">{event.month}</div>
-                  <div className="day">{event.day}</div>
-                </div>
-                <div className="event-info">
-                  <h3>{event.title}</h3>
-                  <p>{event.description}</p>
-                  <div className="event-meta">
-                    <span><MapPin size={14} /> {event.location}</span>
-                    <span><Clock size={14} /> {event.time}</span>
-                    <span><Tag size={14} /> {event.type}</span>
-                  </div>
-                </div>
+          {loading && (
+            <Reveal at={0} animation="fade-up" duration={400}>
+              <div className="events-loading">
+                <CalendarCheck size={32} weight="duotone" />
+                <p>{t.events.loadingEvents}</p>
               </div>
             </Reveal>
-          ))}
+          )}
+
+          {!loading && upcoming.length === 0 && (
+            <Reveal at={0} animation="fade-up" duration={500}>
+              <div className="events-empty">
+                <CalendarCheck size={48} weight="duotone" />
+                <h3>{t.events.noUpcomingEvents}</h3>
+                <p>{t.events.noUpcomingEventsDesc}</p>
+                <a
+                  href={groupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  <CalendarCheck size={18} weight="bold" />
+                  {t.events.followOnMeetup}
+                </a>
+              </div>
+            </Reveal>
+          )}
+
+          {!loading &&
+            upcoming.map((event, i) => (
+              <EventCard key={event.id} event={event} locale={locale} index={i} />
+            ))}
         </div>
       </section>
 
-      <section className="section section--alt">
-        <div className="section-inner">
-          <div className="section-header">
-            <h2>{t.events.past}</h2>
+      {/* Past Events */}
+      {!loading && past.length > 0 && (
+        <section className="section section--alt">
+          <div className="section-inner">
+            <div className="section-header">
+              <h2>{t.events.past}</h2>
+            </div>
+
+            {past.map((event, i) => (
+              <EventCard key={event.id} event={event} locale={locale} index={i} />
+            ))}
           </div>
+        </section>
+      )}
 
-          {pastEvents.map((event, i) => (
-            <Reveal key={event.id} at={0} animation="fade-up" duration={500} delay={i * 120}>
-              <div className="event-card">
-                <div className="event-date">
-                  <div className="month">{event.month}</div>
-                  <div className="day">{event.day}</div>
-                </div>
-                <div className="event-info">
-                  <h3>{event.title}</h3>
-                  <p>{event.description}</p>
-                  <div className="event-meta">
-                    <span><MapPin size={14} /> {event.location}</span>
-                    <span><Clock size={14} /> {event.time}</span>
-                    <span><Tag size={14} /> {event.type}</span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
+      {/* Powered by Meetup + CTA */}
       <section className="cta-section">
         <Reveal at={0} animation="fade-up" duration={600}>
           <h2>{t.events.wantToSpeak}</h2>
           <p>{t.events.wantToSpeakDesc}</p>
-          <a
-            href="https://github.com/AuralJS/discussion/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            <Microphone size={18} weight="bold" />
-            {t.events.proposeTalk}
-          </a>
+          <div className="hero-actions">
+            <a
+              href="https://github.com/AuralJS/discussion/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              <Microphone size={18} weight="bold" />
+              {t.events.proposeTalk}
+            </a>
+            <a
+              href={groupUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              <CalendarCheck size={18} weight="bold" />
+              {t.events.followOnMeetup}
+            </a>
+          </div>
+          <p className="events-attribution">{t.events.poweredByMeetup}</p>
         </Reveal>
       </section>
     </Kino>
