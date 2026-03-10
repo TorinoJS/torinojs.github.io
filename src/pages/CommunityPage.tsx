@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLocale } from '~/i18n/context'
-import { Kino, Scene, Reveal } from 'react-kino'
+import { Kino, Reveal } from 'react-kino'
 import { Calendar } from 'lucide-react'
 import {
   GithubLogo,
@@ -60,7 +60,15 @@ function getContactI18n(
   return { title, description }
 }
 
-type Tab = 'connect' | 'involved' | 'discussions'
+export type CommunityTab = 'connect' | 'involved' | 'discussions'
+
+export const VALID_TABS: CommunityTab[] = ['connect', 'involved', 'discussions']
+
+function getTabFromHash(): CommunityTab {
+  if (typeof window === 'undefined') return 'connect'
+  const hash = window.location.hash.replace('#', '')
+  return VALID_TABS.includes(hash as CommunityTab) ? (hash as CommunityTab) : 'connect'
+}
 
 /**
  * Map label names to i18n section title/description keys.
@@ -100,12 +108,23 @@ function useSectionI18n() {
 }
 
 export function CommunityPage() {
-  const { locale, t } = useLocale()
-  const [activeTab, setActiveTab] = useState<Tab>('connect')
+  const { t } = useLocale()
+  const [activeTab, setActiveTabState] = useState<CommunityTab>(getTabFromHash)
   const { issues, loading, repoUrl, getIssuesByLabel } = useGitHubIssues()
   const sectionI18n = useSectionI18n()
 
-  const tabs: { id: Tab; label: string }[] = [
+  const setActiveTab = useCallback((tab: CommunityTab) => {
+    setActiveTabState(tab)
+    window.history.replaceState(null, '', `#${tab}`)
+  }, [])
+
+  useEffect(() => {
+    const onHashChange = () => setActiveTabState(getTabFromHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  const tabs: { id: CommunityTab; label: string }[] = [
     { id: 'connect', label: t.community.tabConnect },
     { id: 'involved', label: t.community.tabGetInvolved },
     { id: 'discussions', label: t.community.tabDiscussions },
@@ -113,17 +132,6 @@ export function CommunityPage() {
 
   return (
     <Kino>
-      <Scene duration="80vh" pin={true}>
-        {(progress: number) => (
-          <div className="page-header">
-            <Reveal at={0} animation="fade-up" duration={600} progress={progress}>
-              <h1>{t.community.title}</h1>
-              <p>{t.community.subtitle}</p>
-            </Reveal>
-          </div>
-        )}
-      </Scene>
-
       {/* Tab Navigation */}
       <div className="community-tabs">
         <div className="community-tabs-inner">
