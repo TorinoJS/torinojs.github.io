@@ -9,6 +9,8 @@ import {
   LOCALE_LABELS,
   type Locale,
 } from '~/i18n'
+import { Menu, X } from 'lucide-react'
+import { GithubLogo, XLogo } from '@phosphor-icons/react'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +20,6 @@ export function Header() {
 
   const isActive = (path: string) => {
     const localized = localePath(path, locale)
-    // Handle trailing slashes
     const normalizedCurrent = currentPath.replace(/\/$/, '') || '/'
     const normalizedTarget = localized.replace(/\/$/, '') || '/'
     return normalizedCurrent === normalizedTarget
@@ -36,7 +37,7 @@ export function Header() {
       <div className="header-inner">
         <Link to={localePath('/', locale)} className="header-logo">
           <img
-            src="https://raw.githubusercontent.com/nicmart/torinojs-branding/master/Resources/png/TorinoJS_Logo_Flat.png"
+            src="/torinojs-logo.svg"
             alt="TorinoJS"
             width="40"
             height="40"
@@ -49,7 +50,7 @@ export function Header() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={t.header.toggleNav}
         >
-          {isOpen ? '\u2715' : '\u2630'}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <nav className={`header-nav ${isOpen ? 'open' : ''}`}>
@@ -95,20 +96,20 @@ export function Header() {
           </a>
           <div className="header-socials">
             <a
-              href="https://github.com/nicmart/torinojs-branding"
+              href="https://github.com/AuralJS"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              GH
+              <GithubLogo size={22} weight="bold" />
             </a>
             <a
               href="https://x.com/AuralJS"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="X / Twitter"
             >
-              X
+              <XLogo size={22} weight="bold" />
             </a>
           </div>
         </div>

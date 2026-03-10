@@ -1,5 +1,17 @@
 import { useLocale } from '~/i18n/context'
 import { Kino, Scene, Reveal } from 'react-kino'
+import { Calendar } from 'lucide-react'
+import {
+  GithubLogo,
+  XLogo,
+  Microphone,
+  Megaphone,
+  Wrench,
+  HandHeart,
+  CurrencyCircleDollar,
+  Student,
+  ShareNetwork,
+} from '@phosphor-icons/react'
 
 export function CommunityPage() {
   const { locale, t } = useLocale()
@@ -29,13 +41,15 @@ export function CommunityPage() {
           <div className="cards-grid">
             <Reveal at={0} animation="fade-up" duration={500} delay={0}>
               <a
-                href="https://github.com/nicmart/torinojs-branding"
+                href="https://github.com/AuralJS"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card"
                 style={{ textDecoration: 'none' }}
               >
-                <div className="card-icon">{'{ }'}</div>
+                <div className="card-icon">
+                  <GithubLogo size={40} weight="duotone" />
+                </div>
                 <h3>{t.community.github}</h3>
                 <p>{t.community.githubDesc}</p>
               </a>
@@ -49,7 +63,9 @@ export function CommunityPage() {
                 className="card"
                 style={{ textDecoration: 'none' }}
               >
-                <div className="card-icon">{'@'}</div>
+                <div className="card-icon">
+                  <XLogo size={40} weight="duotone" />
+                </div>
                 <h3>{t.community.twitter}</h3>
                 <p>{t.community.twitterDesc}</p>
               </a>
@@ -57,13 +73,15 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={300}>
               <a
-                href="https://github.com/nicmart/torinojs-branding/issues"
+                href="https://github.com/AuralJS/discussion/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card"
                 style={{ textDecoration: 'none' }}
               >
-                <div className="card-icon">{'>>>'}</div>
+                <div className="card-icon">
+                  <Microphone size={40} weight="duotone" />
+                </div>
                 <h3>{t.community.proposeTalk}</h3>
                 <p>{t.community.proposeTalkDesc}</p>
               </a>
@@ -84,6 +102,9 @@ export function CommunityPage() {
           <div className="cards-grid">
             <Reveal at={0} animation="fade-up" duration={500} delay={0}>
               <div className="card">
+                <div className="card-icon">
+                  <Megaphone size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.speakTitle}</h3>
                 <p>{t.community.speakDesc}</p>
               </div>
@@ -91,6 +112,9 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={100}>
               <div className="card">
+                <div className="card-icon">
+                  <Wrench size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.hostWorkshop}</h3>
                 <p>{t.community.hostWorkshopDesc}</p>
               </div>
@@ -98,6 +122,9 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={200}>
               <div className="card">
+                <div className="card-icon">
+                  <HandHeart size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.volunteer}</h3>
                 <p>{t.community.volunteerDesc}</p>
               </div>
@@ -105,6 +132,9 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={300}>
               <div className="card">
+                <div className="card-icon">
+                  <CurrencyCircleDollar size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.sponsor}</h3>
                 <p>{t.community.sponsorDesc}</p>
               </div>
@@ -112,6 +142,9 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={400}>
               <div className="card">
+                <div className="card-icon">
+                  <Student size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.mentor}</h3>
                 <p>{t.community.mentorDesc}</p>
               </div>
@@ -119,6 +152,9 @@ export function CommunityPage() {
 
             <Reveal at={0} animation="fade-up" duration={500} delay={500}>
               <div className="card">
+                <div className="card-icon">
+                  <ShareNetwork size={36} weight="duotone" />
+                </div>
                 <h3>{t.community.spreadWord}</h3>
                 <p>{t.community.spreadWordDesc}</p>
               </div>
@@ -132,11 +168,12 @@ export function CommunityPage() {
           <h2>{t.community.joinNextEvent}</h2>
           <p>{t.community.joinNextEventDesc}</p>
           <a
-            href="https://github.com/nicmart/torinojs-branding/issues"
+            href="https://github.com/AuralJS/discussion/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
+            <Calendar size={18} />
             {t.community.viewUpcoming}
           </a>
         </Reveal>

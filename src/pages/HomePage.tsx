@@ -1,7 +1,18 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/context'
 import { localePath } from '~/i18n'
-import { Kino, Scene, Reveal, Parallax, Counter, TextReveal, Marquee } from 'react-kino'
+import { Kino, Scene, Reveal, Counter, Marquee } from 'react-kino'
+import { Calendar, ArrowRight } from 'lucide-react'
+import {
+  Microphone,
+  Code,
+  Wrench,
+  Handshake,
+  CalendarCheck,
+  UsersThree,
+  ChatTeardropDots,
+  Lightning,
+} from '@phosphor-icons/react'
 
 export function HomePage() {
   const { locale, t } = useLocale()
@@ -15,7 +26,7 @@ export function HomePage() {
             <div className="hero-content">
               <Reveal at={0} animation="scale" duration={800}>
                 <img
-                  src="https://raw.githubusercontent.com/nicmart/torinojs-branding/master/Resources/png/TorinoJS_Logo_Flat.png"
+                  src="/torinojs-logo.svg"
                   alt="TorinoJS Logo"
                   className="hero-logo"
                   width="120"
@@ -31,14 +42,16 @@ export function HomePage() {
               <Reveal at={0.15} animation="fade-up" duration={600} delay={200}>
                 <div className="hero-actions">
                   <Link to={localePath('/events', locale)} className="btn btn-primary">
+                    <Calendar size={18} />
                     {t.home.upcomingEvents}
                   </Link>
                   <a
-                    href="https://github.com/nicmart/torinojs-branding/issues"
+                    href="https://github.com/AuralJS/discussion/issues"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary"
                   >
+                    <Microphone size={18} weight="bold" />
                     {t.home.proposeTalk}
                   </a>
                 </div>
@@ -114,7 +127,9 @@ export function HomePage() {
               <div className="cards-grid">
                 <Reveal at={0.15} animation="fade-up" duration={500} delay={0} progress={progress}>
                   <div className="card">
-                    <div className="card-icon">{'</>'}</div>
+                    <div className="card-icon">
+                      <Code size={40} weight="duotone" />
+                    </div>
                     <h3>{t.home.techTalks}</h3>
                     <p>{t.home.techTalksDesc}</p>
                   </div>
@@ -122,7 +137,9 @@ export function HomePage() {
 
                 <Reveal at={0.15} animation="fade-up" duration={500} delay={150} progress={progress}>
                   <div className="card">
-                    <div className="card-icon">{'{ }'}</div>
+                    <div className="card-icon">
+                      <Wrench size={40} weight="duotone" />
+                    </div>
                     <h3>{t.home.workshops}</h3>
                     <p>{t.home.workshopsDesc}</p>
                   </div>
@@ -130,7 +147,9 @@ export function HomePage() {
 
                 <Reveal at={0.15} animation="fade-up" duration={500} delay={300} progress={progress}>
                   <div className="card">
-                    <div className="card-icon">{'>=>'}</div>
+                    <div className="card-icon">
+                      <Handshake size={40} weight="duotone" />
+                    </div>
                     <h3>{t.home.networking}</h3>
                     <p>{t.home.networkingDesc}</p>
                   </div>
@@ -153,24 +172,28 @@ export function HomePage() {
               </div>
               <div className="stats-row">
                 <div className="stat">
+                  <Lightning size={28} weight="duotone" className="stat-icon" />
                   <div className="stat-number">
                     <Counter from={0} to={10} at={0.1} span={0.4} progress={progress} />+
                   </div>
                   <div className="stat-label">{t.home.yearsOfCommunity}</div>
                 </div>
                 <div className="stat">
+                  <CalendarCheck size={28} weight="duotone" className="stat-icon" />
                   <div className="stat-number">
                     <Counter from={0} to={100} at={0.15} span={0.4} progress={progress} />+
                   </div>
                   <div className="stat-label">{t.home.eventsHeld}</div>
                 </div>
                 <div className="stat">
+                  <UsersThree size={28} weight="duotone" className="stat-icon" />
                   <div className="stat-number">
                     <Counter from={0} to={500} at={0.2} span={0.4} progress={progress} />+
                   </div>
                   <div className="stat-label">{t.home.communityMembers}</div>
                 </div>
                 <div className="stat">
+                  <ChatTeardropDots size={28} weight="duotone" className="stat-icon" />
                   <div className="stat-number">
                     <Counter from={0} to={200} at={0.25} span={0.4} progress={progress} />+
                   </div>
@@ -195,10 +218,12 @@ export function HomePage() {
             <Reveal at={0.2} animation="fade-up" duration={600} delay={200} progress={progress}>
               <div className="hero-actions">
                 <Link to={localePath('/community', locale)} className="btn btn-primary">
+                  <UsersThree size={18} weight="bold" />
                   {t.home.joinCommunity}
                 </Link>
                 <Link to={localePath('/about', locale)} className="btn btn-secondary">
                   {t.home.learnMore}
+                  <ArrowRight size={18} />
                 </Link>
               </div>
             </Reveal>

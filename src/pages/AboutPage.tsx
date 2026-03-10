@@ -1,7 +1,9 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/context'
 import { localePath } from '~/i18n'
-import { Kino, Scene, Reveal, TextReveal } from 'react-kino'
+import { Kino, Scene, Reveal } from 'react-kino'
+import { BookOpen, GraduationCap, Lightbulb, TrendingUp, Users } from 'lucide-react'
+import { UsersThree, ShieldCheck } from '@phosphor-icons/react'
 
 export function AboutPage() {
   const { locale, t } = useLocale()
@@ -37,18 +39,22 @@ export function AboutPage() {
           <p>{t.about.ourMissionP}</p>
         </Reveal>
         <Reveal at={0} animation="fade-up" duration={500} delay={150}>
-          <ul>
+          <ul className="mission-list">
             <li>
-              <strong>{t.about.learn}</strong> {t.about.missionLearn}
+              <GraduationCap size={18} />
+              <span><strong>{t.about.learn}</strong> {t.about.missionLearn}</span>
             </li>
             <li>
-              <strong>{t.about.share}</strong> {t.about.missionShare}
+              <Lightbulb size={18} />
+              <span><strong>{t.about.share}</strong> {t.about.missionShare}</span>
             </li>
             <li>
-              <strong>{t.about.connect}</strong> {t.about.missionConnect}
+              <Users size={18} />
+              <span><strong>{t.about.connect}</strong> {t.about.missionConnect}</span>
             </li>
             <li>
-              <strong>{t.about.grow}</strong> {t.about.missionGrow}
+              <TrendingUp size={18} />
+              <span><strong>{t.about.grow}</strong> {t.about.missionGrow}</span>
             </li>
           </ul>
         </Reveal>
@@ -72,7 +78,10 @@ export function AboutPage() {
         </Reveal>
 
         <Reveal at={0} animation="fade-up" duration={600}>
-          <h2>{t.about.codeOfConduct}</h2>
+          <h2>
+            <ShieldCheck size={28} weight="duotone" style={{ verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            {t.about.codeOfConduct}
+          </h2>
         </Reveal>
         <Reveal at={0} animation="fade-up" duration={500} delay={100}>
           <p>{t.about.codeOfConductP1}</p>
@@ -113,6 +122,7 @@ export function AboutPage() {
           <h2>{t.about.wantToGetInvolved}</h2>
           <p>{t.about.wantToGetInvolvedDesc}</p>
           <Link to={localePath('/community', locale)} className="btn btn-primary">
+            <UsersThree size={18} weight="bold" />
             {t.about.joinCommunity}
           </Link>
         </Reveal>

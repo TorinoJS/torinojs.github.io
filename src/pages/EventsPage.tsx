@@ -1,7 +1,7 @@
-import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/context'
-import { localePath } from '~/i18n'
 import { Kino, Scene, Reveal } from 'react-kino'
+import { MapPin, Clock, Tag } from 'lucide-react'
+import { Microphone } from '@phosphor-icons/react'
 
 export function EventsPage() {
   const { locale, t } = useLocale()
@@ -97,9 +97,9 @@ export function EventsPage() {
                   <h3>{event.title}</h3>
                   <p>{event.description}</p>
                   <div className="event-meta">
-                    <span>{event.location}</span>
-                    <span>{event.time}</span>
-                    <span>{event.type}</span>
+                    <span><MapPin size={14} /> {event.location}</span>
+                    <span><Clock size={14} /> {event.time}</span>
+                    <span><Tag size={14} /> {event.type}</span>
                   </div>
                 </div>
               </div>
@@ -125,9 +125,9 @@ export function EventsPage() {
                   <h3>{event.title}</h3>
                   <p>{event.description}</p>
                   <div className="event-meta">
-                    <span>{event.location}</span>
-                    <span>{event.time}</span>
-                    <span>{event.type}</span>
+                    <span><MapPin size={14} /> {event.location}</span>
+                    <span><Clock size={14} /> {event.time}</span>
+                    <span><Tag size={14} /> {event.type}</span>
                   </div>
                 </div>
               </div>
@@ -141,11 +141,12 @@ export function EventsPage() {
           <h2>{t.events.wantToSpeak}</h2>
           <p>{t.events.wantToSpeakDesc}</p>
           <a
-            href="https://github.com/nicmart/torinojs-branding/issues"
+            href="https://github.com/AuralJS/discussion/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
+            <Microphone size={18} weight="bold" />
             {t.events.proposeTalk}
           </a>
         </Reveal>
