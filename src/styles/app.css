@@ -760,6 +760,172 @@ img {
   opacity: 0.8;
 }
 
+/* Next Event Banner (Homepage) */
+.next-event-banner {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.next-event-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
+}
+
+.next-event-banner:hover {
+  border-color: var(--color-accent);
+}
+
+.next-event-banner--today {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 30px rgba(249, 230, 79, 0.15);
+}
+
+.next-event-banner--today::before {
+  height: 4px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.next-event-banner-inner {
+  max-width: 700px;
+}
+
+.next-event-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.next-event-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.next-event-badge--tomorrow {
+  background: rgba(249, 230, 79, 0.2);
+  color: var(--color-accent);
+}
+
+.next-event-title {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--color-text-heading);
+  margin-bottom: 0.75rem;
+}
+
+.next-event-description {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.next-event-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.next-event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.next-event-meta svg {
+  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+.next-event-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Event card as link */
+.event-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.event-card--link:hover {
+  transform: translateY(-2px);
+}
+
+.event-meetup-link {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+/* Events loading/empty states */
+.events-loading,
+.events-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.events-loading svg,
+.events-empty svg {
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.events-empty h3 {
+  font-size: 1.25rem;
+  color: var(--color-text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.events-empty p {
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Events attribution */
+.events-attribution {
+  font-size: 0.8rem !important;
+  color: var(--color-text-muted) !important;
+  opacity: 0.6;
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .header-nav {
