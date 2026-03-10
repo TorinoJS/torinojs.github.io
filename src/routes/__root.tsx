@@ -45,7 +45,7 @@ export const Route = createRootRoute({
       {
         property: 'og:image',
         content:
-          'https://raw.githubusercontent.com/nicmart/torinojs-branding/master/Resources/png/TorinoJS_Logo_Flat.png',
+          'https://raw.githubusercontent.com/TorinoJS/discussion/master/torinojs-logo.svg.png',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@AuralJS' },
