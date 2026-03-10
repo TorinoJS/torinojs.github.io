@@ -14,6 +14,7 @@ import {
   Lightning,
 } from '@phosphor-icons/react'
 import { NextEventBanner } from '~/components/NextEventBanner'
+import { getProposeTalkUrl } from '~/config/contacts'
 
 export function HomePage() {
   const { locale, t } = useLocale()
@@ -47,7 +48,7 @@ export function HomePage() {
                     {t.home.upcomingEvents}
                   </Link>
                   <a
-                    href="https://github.com/AuralJS/discussion/issues"
+                    href={getProposeTalkUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary"

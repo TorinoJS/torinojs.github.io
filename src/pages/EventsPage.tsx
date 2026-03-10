@@ -2,6 +2,7 @@ import { useLocale } from '~/i18n/context'
 import { Kino, Scene, Reveal } from 'react-kino'
 import { MapPin, Clock, ExternalLink } from 'lucide-react'
 import { Microphone, CalendarCheck } from '@phosphor-icons/react'
+import { getProposeTalkUrl } from '~/config/contacts'
 import {
   useMeetupEvents,
   formatEventDate,
@@ -137,7 +138,7 @@ export function EventsPage() {
           <p>{t.events.wantToSpeakDesc}</p>
           <div className="hero-actions">
             <a
-              href="https://github.com/AuralJS/discussion/issues"
+              href={getProposeTalkUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
