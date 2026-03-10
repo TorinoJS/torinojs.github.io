@@ -37,7 +37,7 @@
         {
             "id": "proposeTalk",
             "type": "microphone",
-            "url": "https://github.com/TorinoJS/discussion/issues/new?label=topic%20request",
+            "url": "https://github.com/TorinoJS/discussion/issues/new?labels=topic%20request",
             "showInHeader": false,
             "showInFooter": true,
             "showInConnect": true
