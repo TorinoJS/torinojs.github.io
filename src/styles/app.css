@@ -367,6 +367,11 @@ img {
 .card-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.card-icon svg {
+  display: block;
 }
 
 .card h3 {
@@ -530,10 +535,23 @@ img {
   font-family: var(--font-mono);
 }
 
+.footer-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-title img {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
 .footer-brand h3 {
   font-size: 1.5rem;
   color: var(--color-accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 
 .footer-brand p {
@@ -556,6 +574,15 @@ img {
 
 .footer-links li {
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links li svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  opacity: 0.7;
 }
 
 .footer-links a {
@@ -703,6 +730,34 @@ img {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Mission list (About page) */
+.mission-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.mission-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.mission-list li svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  margin-top: 0.2rem;
+}
+
+/* Stat icon above counter number */
+.stat-icon {
+  display: block;
+  margin: 0 auto 0.5rem;
+  color: var(--color-accent);
+  opacity: 0.8;
 }
 
 /* Responsive */
