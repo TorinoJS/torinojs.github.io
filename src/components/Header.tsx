@@ -10,7 +10,19 @@ import {
   type Locale,
 } from '~/i18n'
 import { Menu, X } from 'lucide-react'
-import { GithubLogo, XLogo } from '@phosphor-icons/react'
+import { GithubLogo, TelegramLogo, LinkSimple } from '@phosphor-icons/react'
+import { getHeaderContacts, type Contact } from '~/config/contacts'
+
+function HeaderContactIcon({ type }: { type: Contact['type'] }) {
+  switch (type) {
+    case 'github':
+      return <GithubLogo size={22} weight="bold" />
+    case 'telegram':
+      return <TelegramLogo size={22} weight="bold" />
+    default:
+      return <LinkSimple size={22} weight="bold" />
+  }
+}
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -95,22 +107,17 @@ export function Header() {
             {LOCALE_FLAGS[otherLocale]}
           </a>
           <div className="header-socials">
-            <a
-              href="https://github.com/AuralJS"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <GithubLogo size={22} weight="bold" />
-            </a>
-            <a
-              href="https://x.com/AuralJS"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X / Twitter"
-            >
-              <XLogo size={22} weight="bold" />
-            </a>
+            {getHeaderContacts().map((contact) => (
+              <a
+                key={contact.id}
+                href={contact.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={contact.id}
+              >
+                <HeaderContactIcon type={contact.type} />
+              </a>
+            ))}
           </div>
         </div>
       </div>

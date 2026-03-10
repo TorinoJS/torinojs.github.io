@@ -4,7 +4,6 @@ import { Kino, Scene, Reveal } from 'react-kino'
 import { Calendar } from 'lucide-react'
 import {
   GithubLogo,
-  XLogo,
   Microphone,
   Megaphone,
   Wrench,
@@ -17,12 +16,49 @@ import {
   Question,
   HandsClapping,
   GearSix,
+  TelegramLogo,
+  CalendarBlank,
+  LinkSimple,
 } from '@phosphor-icons/react'
 import { DiscussionSection } from '~/components/DiscussionSection'
 import {
   useGitHubIssues,
   SECTION_CONFIGS,
 } from '~/hooks/useGitHubIssues'
+import { getConnectContacts, getProposeTalkUrl, type Contact } from '~/config/contacts'
+import type { Translations } from '~/i18n'
+
+/**
+ * Map a contact type to its Phosphor icon component (size 40, duotone).
+ */
+function ContactIcon({ type, size = 40 }: { type: Contact['type']; size?: number }) {
+  switch (type) {
+    case 'github':
+      return <GithubLogo size={size} weight="duotone" />
+    case 'telegram':
+      return <TelegramLogo size={size} weight="duotone" />
+    case 'meetup':
+      return <CalendarBlank size={size} weight="duotone" />
+    case 'microphone':
+      return <Microphone size={size} weight="duotone" />
+    default:
+      return <LinkSimple size={size} weight="duotone" />
+  }
+}
+
+/**
+ * Get the i18n title and description for a contact by its id.
+ * Falls back to the contact id if no i18n key exists.
+ */
+function getContactI18n(
+  id: string,
+  t: Translations
+): { title: string; description: string } {
+  const community = t.community as Record<string, unknown>
+  const title = (community[id] as string) ?? id
+  const description = (community[`${id}Desc`] as string) ?? ''
+  return { title, description }
+}
 
 type Tab = 'connect' | 'involved' | 'discussions'
 
@@ -117,53 +153,26 @@ export function CommunityPage() {
               </div>
 
               <div className="cards-grid">
-                <Reveal at={0} animation="fade-up" duration={500} delay={0}>
-                  <a
-                    href="https://github.com/TorinoJS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <div className="card-icon">
-                      <GithubLogo size={40} weight="duotone" />
-                    </div>
-                    <h3>{t.community.github}</h3>
-                    <p>{t.community.githubDesc}</p>
-                  </a>
-                </Reveal>
-
-                <Reveal at={0} animation="fade-up" duration={500} delay={150}>
-                  <a
-                    href="https://x.com/AuralJS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <div className="card-icon">
-                      <XLogo size={40} weight="duotone" />
-                    </div>
-                    <h3>{t.community.twitter}</h3>
-                    <p>{t.community.twitterDesc}</p>
-                  </a>
-                </Reveal>
-
-                <Reveal at={0} animation="fade-up" duration={500} delay={300}>
-                  <a
-                    href="https://github.com/TorinoJS/discussion/issues"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <div className="card-icon">
-                      <Microphone size={40} weight="duotone" />
-                    </div>
-                    <h3>{t.community.proposeTalk}</h3>
-                    <p>{t.community.proposeTalkDesc}</p>
-                  </a>
-                </Reveal>
+                {getConnectContacts().map((contact, index) => {
+                  const { title, description } = getContactI18n(contact.id, t)
+                  return (
+                    <Reveal key={contact.id} at={0} animation="fade-up" duration={500} delay={index * 150}>
+                      <a
+                        href={contact.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <div className="card-icon">
+                          <ContactIcon type={contact.type} />
+                        </div>
+                        <h3>{title}</h3>
+                        <p>{description}</p>
+                      </a>
+                    </Reveal>
+                  )
+                })}
               </div>
             </div>
           </section>
@@ -304,7 +313,7 @@ export function CommunityPage() {
           <h2>{t.community.joinNextEvent}</h2>
           <p>{t.community.joinNextEventDesc}</p>
           <a
-            href="https://github.com/TorinoJS/discussion/issues"
+            href={getProposeTalkUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

@@ -1,8 +1,36 @@
 import { Link } from '@tanstack/react-router'
 import { useLocale } from '~/i18n/context'
 import { localePath } from '~/i18n'
-import { Home, Calendar, Users, Info, ExternalLink } from 'lucide-react'
-import { GithubLogo, XLogo, Microphone } from '@phosphor-icons/react'
+import { Home, Calendar, Users, Info } from 'lucide-react'
+import {
+  GithubLogo,
+  TelegramLogo,
+  CalendarBlank,
+  Microphone,
+  LinkSimple,
+} from '@phosphor-icons/react'
+import { getFooterContacts, type Contact } from '~/config/contacts'
+
+function FooterContactIcon({ type }: { type: Contact['type'] }) {
+  switch (type) {
+    case 'github':
+      return <GithubLogo size={14} weight="bold" />
+    case 'telegram':
+      return <TelegramLogo size={14} weight="bold" />
+    case 'meetup':
+      return <CalendarBlank size={14} weight="bold" />
+    case 'microphone':
+      return <Microphone size={14} weight="bold" />
+    default:
+      return <LinkSimple size={14} weight="bold" />
+  }
+}
+
+/** Map contact id to display label */
+function getContactLabel(id: string, t: ReturnType<typeof useLocale>['t']): string {
+  const community = t.community as Record<string, unknown>
+  return (community[id] as string) ?? id
+}
 
 export function Footer() {
   const { locale, t } = useLocale()
@@ -43,36 +71,18 @@ export function Footer() {
         <div className="footer-links">
           <h4>{t.footer.connect}</h4>
           <ul>
-            <li>
-              <GithubLogo size={14} weight="bold" />
-              <a
-                href="https://github.com/AuralJS"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <XLogo size={14} weight="bold" />
-              <a
-                href="https://x.com/AuralJS"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                X / Twitter
-              </a>
-            </li>
-            <li>
-              <Microphone size={14} weight="bold" />
-              <a
-                href="https://github.com/AuralJS/discussion/issues"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.footer.proposeTalk}
-              </a>
-            </li>
+            {getFooterContacts().map((contact) => (
+              <li key={contact.id}>
+                <FooterContactIcon type={contact.type} />
+                <a
+                  href={contact.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {getContactLabel(contact.id, t)}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
