@@ -1,0 +1,328 @@
+{
+  "lastUpdated": "2026-03-10T02:18:41.062Z",
+  "repo": "TorinoJS/discussion",
+  "repoUrl": "https://github.com/TorinoJS/discussion",
+  "labels": [
+    {
+      "name": "help wanted",
+      "description": "Ask for help on your project/issues",
+      "color": "159818"
+    },
+    {
+      "name": "ops enhancement",
+      "description": "Propose an enhancement to TorinoJS operations",
+      "color": "84b6eb"
+    },
+    {
+      "name": "question",
+      "description": "Ask a question",
+      "color": "cc317c"
+    },
+    {
+      "name": "topic request",
+      "description": "Request a topic for a talk",
+      "color": "e1fc95"
+    },
+    {
+      "name": "workshop proposal",
+      "description": "Propose a workshop",
+      "color": "0c1526"
+    }
+  ],
+  "issues": [
+    {
+      "id": 11,
+      "title": "TorinoJS #jsNight 1ott2015 - C4P",
+      "body": "Siamo quasi pronti per una nuova #jsNight per parlare di javascript e si terrà il 1 ottobre presso I3P del Politecnico di Torino.\n\nSe siete interessati a partecipare attivamente c’é ancora uno slot libero per un relatore, inoltre per chi vuole, sarà possibile acquistare le [magliette di #TorinoJS](https://twitter.com/torinojs/status/606473778067931136) al costo di produzione di 10€ (fino ad esaurimento scorte).\n\n[Info e registrazioni](http://www.eventbrite.com/e/biglietti-torinojs-jsnight-1ott2015-incontro-su-javascript-e-tecnologie-web-open-source-17551169019?aff=gh)\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "grigio",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/8074?v=4",
+        "url": "https://github.com/grigio"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/11",
+      "comments": 10,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-08-20T10:53:23Z",
+      "updatedAt": "2015-11-12T21:14:44Z"
+    },
+    {
+      "id": 10,
+      "title": "Web European Conference",
+      "body": "Ciao,\na fine settembre, per la precisione sabato 26 settembre, si terrá a Milano, presso l'Univesitá Bicocca, la seconda edizione della Web European Conference.\n\nGli argomenti spazieranno da server side su .NET, NodeJS, Ruby ai Framework JS client-side, ad Azure e IoT.\n\nAbbiamo giá alcuni speaker d'eccezione, come Scott Hanselman, per la prima volta ad un evento in Italia, a Dino Esposito, Massimiliano Mantione, Alessio Delmonti con IonicFramework, Sandro Paganotti e molti altre proposte ancora da valutare (https://github.com/Web-European-Conference/c4p/blob/master/proposal.json)\n\nMaggiori informazioni: http://webnextconf.eu/\nLe registrazioni sono giá aperte: https://webnextconf.eventbrite.com\n\nVi sarei grato se poteste annunciarlo ai membri del vosto user group e magari pubblicarlo tra i prossimi vostri eventi.\n\nGrazie\nSimone\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "simonech",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/61557?v=4",
+        "url": "https://github.com/simonech"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/10",
+      "comments": 1,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-07-01T12:33:04Z",
+      "updatedAt": "2015-07-01T14:15:38Z"
+    },
+    {
+      "id": 9,
+      "title": "Consigio",
+      "body": "Posso consigliare di modificare il nome da Torino JS a Torino.js. \n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "beinnova",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2893182?v=4",
+        "url": "https://github.com/beinnova"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/9",
+      "comments": 2,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-05-06T20:32:46Z",
+      "updatedAt": "2015-05-07T08:01:20Z"
+    },
+    {
+      "id": 8,
+      "title": "Proposta di modifica scaletta",
+      "body": "Ciao ragazzi, volevo proporre una piccola modifica alla scaletta. L'argomento che tratto parla dei tools e delle metodologie per migliorare il workflow lavorativo. E' uno speech particolarmente adatto a chi si affaccia per la prima volta al web development o per i veterani che ancora non usano alcune tecnologie. Alcune di queste, come Gulp, saranno sicuramente menzionate nei vostri speech. A rigor di logica penso sia meglio che un intervento \"leggero\" come il mio sia adatto in apertura in modo tale da spianare la strada a certi argomenti e terminologie che poi verranno successivamente utilizzate.\nDitemi che ne pensate ;-)\nciao\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "alearcy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402295?v=4",
+        "url": "https://github.com/alearcy"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/8",
+      "comments": 1,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-05-04T14:42:23Z",
+      "updatedAt": "2015-05-04T16:56:03Z"
+    },
+    {
+      "id": 7,
+      "title": "streaming jsNight",
+      "body": "Ciao a tutti,\n\nsarebbe carino se poteste mandare in streaming la prima serata, per dare la possibilità a chi come me non potrà essere presente.\n\nanche un semplice computer puntato sullo speaker, nulla di complicato.\n\nche ne dite?\n",
+      "state": "closed",
+      "labels": [
+        "ops enhancement"
+      ],
+      "author": {
+        "login": "vesparny",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/82070?v=4",
+        "url": "https://github.com/vesparny"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/7",
+      "comments": 5,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-04-14T12:01:16Z",
+      "updatedAt": "2015-05-04T16:57:48Z"
+    },
+    {
+      "id": 6,
+      "title": "Badge e stickers",
+      "body": "everyone love stickers 😄😄😄\n\nQualcuno conosce dei fornitori economici per queste cose? Sono disposto a pagarle di tasca mia, quindi non è un SE ma un COME 👍😄\n",
+      "state": "open",
+      "labels": [
+        "ops enhancement"
+      ],
+      "author": {
+        "login": "antonellopasella",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/96335?v=4",
+        "url": "https://github.com/antonellopasella"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/6",
+      "comments": 2,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-28T11:44:52Z",
+      "updatedAt": "2015-04-02T21:42:37Z"
+    },
+    {
+      "id": 5,
+      "title": "react-europe",
+      "body": "qualcuno interessanto?\nhttp://www.react-europe.org/\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "vesparny",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/82070?v=4",
+        "url": "https://github.com/vesparny"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/5",
+      "comments": 0,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-27T12:20:03Z",
+      "updatedAt": "2015-04-06T16:58:31Z"
+    },
+    {
+      "id": 4,
+      "title": "Cos'é TorinoJS e quali attività vorresti facesse?",
+      "body": "TorinoJS è un gruppo informale che si riunisce ogni _random_ settimane ( #jsNight ) per trattare argomenti riguardanti javascript e tecnologie web open source.\n\nSe volete proporre qualche altro fine scrivete qui\n#2\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "grigio",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/8074?v=4",
+        "url": "https://github.com/grigio"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/4",
+      "comments": 0,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-25T12:03:40Z",
+      "updatedAt": "2015-07-01T14:15:59Z"
+    },
+    {
+      "id": 3,
+      "title": "website",
+      "body": "Ciao ragazzi, \ncomplimenti per l'iniziativa.\n\nErano anni che dicevo che sarebbe stato bello organizzare un gruppo a Torino, ma alla fine non mi sono mai deciso a fare qualcosa attivamente.\n\nAvete già un sito?\n\nSe vi va posso darvi una mano, anche se sto poco a torino ultimamente, col cuore sono sempre la :)\n",
+      "state": "closed",
+      "labels": [
+        "ops enhancement"
+      ],
+      "author": {
+        "login": "vesparny",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/82070?v=4",
+        "url": "https://github.com/vesparny"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/3",
+      "comments": 6,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-24T15:05:36Z",
+      "updatedAt": "2015-04-06T18:34:25Z"
+    },
+    {
+      "id": 2,
+      "title": "Magliette di TorinoJS?",
+      "body": "@antonellopasella ha proposto di fare delle magliette per TorinoJS. I loghi in SVG sono nel repository.\n\n**TODO**\n- scegliere la variante da stampare\n- valutare se è il caso di realizzare le magliette per il 6 maggio o all'appuntamento dopo\n  - raccogliere gli ordini di taglia e quantità\n",
+      "state": "closed",
+      "labels": [
+        "ops enhancement"
+      ],
+      "author": {
+        "login": "grigio",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/8074?v=4",
+        "url": "https://github.com/grigio"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/2",
+      "comments": 38,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-22T17:27:02Z",
+      "updatedAt": "2015-06-04T18:41:06Z"
+    },
+    {
+      "id": 1,
+      "title": "TorinoJS logo",
+      "body": "![schermata 2015-03-18 alle 22 31 16](https://cloud.githubusercontent.com/assets/8074/6733101/3ac5b3a6-ce50-11e4-9741-845c94f6bf7b.png)\n",
+      "state": "closed",
+      "labels": [],
+      "author": {
+        "login": "grigio",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/8074?v=4",
+        "url": "https://github.com/grigio"
+      },
+      "url": "https://github.com/TorinoJS/discussion/issues/1",
+      "comments": 1,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "eyes": 0,
+        "total": 0
+      },
+      "createdAt": "2015-03-19T14:55:18Z",
+      "updatedAt": "2015-03-24T16:24:03Z"
+    }
+  ]
+}
