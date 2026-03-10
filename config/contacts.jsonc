@@ -1,0 +1,46 @@
+{
+    // TorinoJS community contact channels.
+    // Each entry drives the Connect tab, Header socials, and Footer links.
+    // To add a new channel, add an entry here — the UI picks it up automatically.
+    //
+    // "id"          — unique key, also used to resolve i18n keys (community.<id>, community.<id>Desc)
+    // "type"        — icon hint: "github" | "telegram" | "meetup" | "microphone" | "link"
+    // "url"         — the link target
+    // "showInHeader" — show as icon-only link in the site header
+    // "showInFooter" — show in the footer connect column
+    // "showInConnect" — show as a card in the Community > Connect tab
+    "contacts": [
+        {
+            "id": "github",
+            "type": "github",
+            "url": "https://github.com/TorinoJS",
+            "showInHeader": true,
+            "showInFooter": true,
+            "showInConnect": true
+        },
+        {
+            "id": "telegram",
+            "type": "telegram",
+            "url": "https://t.me/+rO1vQweA3WU5MWE0",
+            "showInHeader": true,
+            "showInFooter": true,
+            "showInConnect": true
+        },
+        {
+            "id": "meetup",
+            "type": "meetup",
+            "url": "https://www.meetup.com/torino-js/",
+            "showInHeader": false,
+            "showInFooter": true,
+            "showInConnect": true
+        },
+        {
+            "id": "proposeTalk",
+            "type": "microphone",
+            "url": "https://github.com/TorinoJS/discussion/issues/new?label=topic%20request",
+            "showInHeader": false,
+            "showInFooter": true,
+            "showInConnect": true
+        }
+    ]
+}
