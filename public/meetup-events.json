@@ -1,0 +1,17 @@
+{
+  "lastUpdated": "2026-03-10T01:39:29.671Z",
+  "source": "https://www.meetup.com/torino-js/events/ical/",
+  "groupUrl": "https://www.meetup.com/torino-js/",
+  "events": [
+    {
+      "id": "313444548",
+      "title": "TorinoJS Meetup",
+      "description": "JavaScript è ovunque sul web, ma le connessioni migliori nascono offline. TorinoJS è il punto di ritrovo ospitato da Toolbox per dev, curiosi e appassionati. Niente cattedre, solo condivisione: talk tecnici, esperienze vere e networking davanti a una birra. Esci dalla console e unisciti alla community!",
+      "url": "https://www.meetup.com/torino-js/events/313444548/",
+      "start": "2026-03-11T18:00:00.000Z",
+      "end": "2026-03-11T20:00:00.000Z",
+      "location": null,
+      "status": "CONFIRMED"
+    }
+  ]
+}
