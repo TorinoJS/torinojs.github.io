@@ -34,7 +34,6 @@ const it = {
       'Eventi async su JavaScript, Node.js, IoT e tecnologie web open source a Torino, Italia. Community dal 2015.',
     explore: 'Esplora',
     connect: 'Connettiti',
-    proposeTalk: 'Proponi un Talk',
     builtWith: 'Realizzato con',
     license: 'Licenza MIT',
   },
@@ -170,9 +169,12 @@ const it = {
     github: 'GitHub',
     githubDesc:
       'Segui i nostri repository, contribuisci ai progetti e apri issue per proposte di talk e discussioni della community.',
-    twitter: 'X / Twitter',
-    twitterDesc:
-      'Seguici per annunci di eventi, consigli JavaScript e highlights della community. Taggaci con #TorinoJS.',
+    telegram: 'Telegram',
+    telegramDesc:
+      'Unisciti al nostro gruppo Telegram per discussioni in tempo reale, annunci e networking con la community.',
+    meetup: 'Meetup',
+    meetupDesc:
+      'Segui il nostro gruppo Meetup per restare aggiornato sugli eventi, registrarti e ricevere notifiche.',
     proposeTalk: 'Proponi un Talk',
     proposeTalkDesc:
       'Hai qualcosa da condividere? Apri una issue su GitHub con la tua proposta di talk. Accogliamo speaker di tutti i livelli di esperienza.',

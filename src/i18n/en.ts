@@ -36,7 +36,6 @@ const en: Translations = {
       'Async events about JavaScript, Node.js, IoT, and open source web technologies in Torino, Italy. Community-driven since 2015.',
     explore: 'Explore',
     connect: 'Connect',
-    proposeTalk: 'Propose a Talk',
     builtWith: 'Built with',
     license: 'MIT License',
   },
@@ -172,9 +171,12 @@ const en: Translations = {
     github: 'GitHub',
     githubDesc:
       'Follow our repositories, contribute to projects, and open issues for talk proposals and community discussions.',
-    twitter: 'X / Twitter',
-    twitterDesc:
-      'Follow us for event announcements, JavaScript tips, and community highlights. Tag us with #TorinoJS.',
+    telegram: 'Telegram',
+    telegramDesc:
+      'Join our Telegram group for real-time discussions, announcements, and networking with the community.',
+    meetup: 'Meetup',
+    meetupDesc:
+      'Follow our Meetup group to stay updated on events, RSVP, and get notifications.',
     proposeTalk: 'Propose a Talk',
     proposeTalkDesc:
       'Have something to share? Open an issue on GitHub with your talk proposal. We welcome speakers of all experience levels.',
