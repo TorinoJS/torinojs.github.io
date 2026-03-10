@@ -158,6 +158,12 @@ const it = {
     title: 'Community',
     subtitle:
       'Connettiti, collabora e cresci con gli sviluppatori JavaScript di Torino.',
+
+    // Tab labels
+    tabConnect: 'Connettiti',
+    tabGetInvolved: 'Partecipa',
+    tabDiscussions: 'Discussioni',
+
     howToConnect: 'Come Connettersi',
     howToConnectSub:
       'Ci sono molti modi per far parte di TorinoJS. Trova quello che fa per te.',
@@ -194,6 +200,41 @@ const it = {
     joinNextEventDesc:
       'Il modo migliore per iniziare e\' presentarsi. Vieni a salutarci al prossimo #jsNight!',
     viewUpcoming: 'Vedi Prossimi Eventi su GitHub',
+
+    // Discussions section
+    discussionsTitle: 'Discussioni della Community',
+    discussionsSub: 'Proposte, domande e idee dalla community. Vota e partecipa alle discussioni su GitHub!',
+    loadingDiscussions: 'Caricamento discussioni...',
+    noIssuesInSection: 'Nessuna discussione in questa categoria.',
+    openNewIssue: 'Apri una nuova discussione',
+    viewOnGitHub: 'Vedi su GitHub',
+    voteOnGitHub: 'Vota su GitHub',
+    poweredByGitHub: 'Discussioni sincronizzate da GitHub',
+    openIssue: 'Aperta',
+    closedIssue: 'Chiusa',
+    comments: 'commenti',
+    comment: 'commento',
+    votes: 'voti',
+    vote: 'voto',
+
+    // Sort options
+    sortByVotes: 'Per voti',
+    sortByNewest: 'Piu\' recenti',
+    sortByOldest: 'Meno recenti',
+    sortByActivity: 'Ultima attivita\'',
+    sortLabel: 'Ordina',
+
+    // Section titles (from GitHub labels)
+    sectionTopicRequest: 'Proposte di Talk',
+    sectionTopicRequestDesc: 'Richiedi un argomento per un talk. Vota le proposte che ti interessano!',
+    sectionWorkshopProposal: 'Proposte di Workshop',
+    sectionWorkshopProposalDesc: 'Proponi o vota un workshop pratico su un argomento specifico.',
+    sectionOpsEnhancement: 'Miglioramenti Operativi',
+    sectionOpsEnhancementDesc: 'Proposte per migliorare le operazioni e l\'organizzazione di TorinoJS.',
+    sectionHelpWanted: 'Richieste di Aiuto',
+    sectionHelpWantedDesc: 'Hai bisogno di aiuto sul tuo progetto? Chiedi alla community!',
+    sectionQuestion: 'Domande',
+    sectionQuestionDesc: 'Domande tecniche e discussioni aperte della community.',
   },
 } as const
 

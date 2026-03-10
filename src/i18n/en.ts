@@ -160,6 +160,12 @@ const en: Translations = {
     title: 'Community',
     subtitle:
       'Connect, collaborate, and grow with JavaScript developers across Torino.',
+
+    // Tab labels
+    tabConnect: 'Connect',
+    tabGetInvolved: 'Get Involved',
+    tabDiscussions: 'Discussions',
+
     howToConnect: 'How to Connect',
     howToConnectSub:
       'There are many ways to be part of TorinoJS. Find the one that works best for you.',
@@ -196,6 +202,41 @@ const en: Translations = {
     joinNextEventDesc:
       'The best way to start is to show up. Come say hi at our next #jsNight!',
     viewUpcoming: 'View Upcoming Events on GitHub',
+
+    // Discussions section
+    discussionsTitle: 'Community Discussions',
+    discussionsSub: 'Proposals, questions, and ideas from the community. Vote and participate in discussions on GitHub!',
+    loadingDiscussions: 'Loading discussions...',
+    noIssuesInSection: 'No discussions in this category.',
+    openNewIssue: 'Start a new discussion',
+    viewOnGitHub: 'View on GitHub',
+    voteOnGitHub: 'Vote on GitHub',
+    poweredByGitHub: 'Discussions synced from GitHub',
+    openIssue: 'Open',
+    closedIssue: 'Closed',
+    comments: 'comments',
+    comment: 'comment',
+    votes: 'votes',
+    vote: 'vote',
+
+    // Sort options
+    sortByVotes: 'By votes',
+    sortByNewest: 'Newest',
+    sortByOldest: 'Oldest',
+    sortByActivity: 'Recent activity',
+    sortLabel: 'Sort',
+
+    // Section titles (from GitHub labels)
+    sectionTopicRequest: 'Talk Proposals',
+    sectionTopicRequestDesc: 'Request a topic for a talk. Vote on the proposals you find interesting!',
+    sectionWorkshopProposal: 'Workshop Proposals',
+    sectionWorkshopProposalDesc: 'Propose or vote for a hands-on workshop on a specific topic.',
+    sectionOpsEnhancement: 'Operations Improvements',
+    sectionOpsEnhancementDesc: 'Proposals to improve TorinoJS operations and organization.',
+    sectionHelpWanted: 'Help Wanted',
+    sectionHelpWantedDesc: 'Need help with your project? Ask the community!',
+    sectionQuestion: 'Questions',
+    sectionQuestionDesc: 'Technical questions and open community discussions.',
   },
 } as const
 
