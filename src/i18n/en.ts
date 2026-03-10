@@ -70,6 +70,14 @@ const en: Translations = {
       "Whether you're a seasoned developer or just starting out, there's a place for you at TorinoJS.",
     joinCommunity: 'Join the Community',
     learnMore: 'Learn More',
+    nextEvent: 'Next Event',
+    happeningToday: 'Today!',
+    happeningTomorrow: 'Tomorrow!',
+    rsvpOnMeetup: 'RSVP on Meetup',
+    poweredByMeetup: 'Powered by Meetup',
+    noUpcomingEvents: 'No upcoming events at the moment.',
+    stayTuned: 'Stay tuned by following us on Meetup or social media!',
+    viewOnMeetup: 'View on Meetup',
   },
 
   // Events page
@@ -85,21 +93,14 @@ const en: Translations = {
     proposeTalk: 'Propose a Talk',
     meetup: 'Meetup',
     workshop: 'Workshop',
-    event1Title: 'TorinoJS #jsNight - TanStack & Modern React',
-    event1Desc:
-      'Explore TanStack Start, React Server Components, and the future of full-stack React applications.',
-    event2Title: 'Workshop: TypeScript Advanced Patterns',
-    event2Desc:
-      'A deep dive into advanced TypeScript patterns including branded types, template literal types, and conditional types.',
-    event3Title: 'TorinoJS #jsNight - Edge Computing & Serverless',
-    event3Desc:
-      'Learn about deploying JavaScript at the edge with Cloudflare Workers, Deno Deploy, and Vercel Edge Functions.',
-    event4Title: 'TorinoJS #jsNight - Node.js Performance',
-    event4Desc:
-      'Profiling, benchmarking, and optimizing Node.js applications for production.',
-    event5Title: 'Workshop: Building CLI Tools with Node.js',
-    event5Desc:
-      'Hands-on session building professional CLI tools using Node.js, commander, and ink.',
+    noUpcomingEvents: 'No upcoming events at the moment.',
+    noUpcomingEventsDesc:
+      'Follow us on Meetup to get notified when we publish the next event!',
+    noPastEvents: 'No past events available.',
+    followOnMeetup: 'Follow us on Meetup',
+    rsvpOnMeetup: 'RSVP on Meetup',
+    poweredByMeetup: 'Events synced from Meetup',
+    loadingEvents: 'Loading events...',
   },
 
   // About page

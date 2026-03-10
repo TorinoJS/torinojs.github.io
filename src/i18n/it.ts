@@ -68,6 +68,14 @@ const it = {
       "Che tu sia uno sviluppatore esperto o alle prime armi, c'e' un posto per te a TorinoJS.",
     joinCommunity: 'Unisciti alla Community',
     learnMore: 'Scopri di Piu\'',
+    nextEvent: 'Prossimo Evento',
+    happeningToday: 'Oggi!',
+    happeningTomorrow: 'Domani!',
+    rsvpOnMeetup: 'RSVP su Meetup',
+    poweredByMeetup: 'Dati da Meetup',
+    noUpcomingEvents: 'Nessun evento in programma al momento.',
+    stayTuned: 'Resta aggiornato seguendoci su Meetup o sui social!',
+    viewOnMeetup: 'Vedi su Meetup',
   },
 
   // Events page
@@ -83,21 +91,14 @@ const it = {
     proposeTalk: 'Proponi un Talk',
     meetup: 'Meetup',
     workshop: 'Workshop',
-    event1Title: 'TorinoJS #jsNight - TanStack & React Moderno',
-    event1Desc:
-      'Esplora TanStack Start, React Server Components e il futuro delle applicazioni React full-stack.',
-    event2Title: 'Workshop: Pattern Avanzati TypeScript',
-    event2Desc:
-      'Un approfondimento sui pattern avanzati di TypeScript inclusi branded types, template literal types e conditional types.',
-    event3Title: 'TorinoJS #jsNight - Edge Computing & Serverless',
-    event3Desc:
-      "Scopri come deployare JavaScript sull'edge con Cloudflare Workers, Deno Deploy e Vercel Edge Functions.",
-    event4Title: 'TorinoJS #jsNight - Performance Node.js',
-    event4Desc:
-      'Profiling, benchmarking e ottimizzazione di applicazioni Node.js per la produzione.',
-    event5Title: 'Workshop: Creare CLI Tools con Node.js',
-    event5Desc:
-      'Sessione pratica per costruire strumenti CLI professionali usando Node.js, commander e ink.',
+    noUpcomingEvents: 'Non ci sono eventi in programma al momento.',
+    noUpcomingEventsDesc:
+      'Seguici su Meetup per essere avvisato quando pubblichiamo il prossimo evento!',
+    noPastEvents: 'Nessun evento passato disponibile.',
+    followOnMeetup: 'Seguici su Meetup',
+    rsvpOnMeetup: 'RSVP su Meetup',
+    poweredByMeetup: 'Eventi sincronizzati da Meetup',
+    loadingEvents: 'Caricamento eventi...',
   },
 
   // About page
