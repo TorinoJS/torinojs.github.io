@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * Fetch upcoming events from the TorinoJS Meetup iCal feed
- * and write them to public/meetup-events.json.
+ * Fetch events from the TorinoJS Meetup iCal feed and MERGE them
+ * into public/meetup-events.json, preserving all historical events.
  *
  * The iCal feed is public and requires no authentication:
  * https://www.meetup.com/torino-js/events/ical/
+ *
+ * New events from the feed are appended; existing events are updated
+ * (by matching on event ID). Events already in the JSON that are NOT
+ * in the feed are kept as-is (historical preservation).
  *
  * Usage:
  *   node scripts/fetch-meetup-events.mjs
@@ -225,8 +229,8 @@ async function main() {
   const events = parseIcal(icalText)
   console.log(`Parsed ${events.length} VEVENT entries.`)
 
-  // Build structured output — keep all events, let the frontend filter by date
-  const output = events
+  // Build structured events from the feed
+  const feedEvents = events
     .map((evt) => ({
       id: extractEventId(evt.url) || evt.uid || null,
       title: evt.title || 'TorinoJS Event',
@@ -238,39 +242,78 @@ async function main() {
       status: evt.status || 'CONFIRMED',
     }))
     .filter((evt) => evt.start) // Must have a start date
-    .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
 
-  const json = JSON.stringify(
-    {
-      lastUpdated: new Date().toISOString(),
-      source: ICAL_URL,
-      groupUrl: 'https://www.meetup.com/torino-js/',
-      events: output,
-    },
-    null,
-    2
+  // Load existing events from disk (historical archive)
+  let existingEvents = []
+  if (existsSync(OUTPUT_PATH)) {
+    try {
+      const existing = JSON.parse(readFileSync(OUTPUT_PATH, 'utf-8'))
+      existingEvents = existing.events || []
+      console.log(`Loaded ${existingEvents.length} existing events from archive.`)
+    } catch {
+      console.log('Could not parse existing file, starting fresh.')
+    }
+  }
+
+  // Merge: feed events update/add, existing events are preserved
+  const eventsById = new Map()
+
+  // First, add all existing (historical) events
+  for (const evt of existingEvents) {
+    if (evt.id) {
+      eventsById.set(evt.id, evt)
+    }
+  }
+
+  // Then, upsert feed events (overwrites existing entries with fresh data)
+  let newCount = 0
+  let updatedCount = 0
+  for (const evt of feedEvents) {
+    if (eventsById.has(evt.id)) {
+      updatedCount++
+    } else {
+      newCount++
+    }
+    eventsById.set(evt.id, evt)
+  }
+
+  // Sort all events chronologically (oldest first)
+  const merged = Array.from(eventsById.values()).sort(
+    (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
   )
 
-  // Check if content changed
-  if (existsSync(OUTPUT_PATH)) {
-    const existing = readFileSync(OUTPUT_PATH, 'utf-8')
-    const existingData = JSON.parse(existing)
-    const newData = JSON.parse(json)
+  const output = {
+    lastUpdated: new Date().toISOString(),
+    source: ICAL_URL,
+    groupUrl: 'https://www.meetup.com/torino-js/',
+    events: merged,
+  }
 
-    // Compare events arrays (ignore lastUpdated timestamp)
-    if (JSON.stringify(existingData.events) === JSON.stringify(newData.events)) {
-      console.log('No changes detected. File not updated.')
-      return
+  const json = JSON.stringify(output, null, 2)
+
+  // Check if content actually changed (ignore lastUpdated timestamp)
+  if (existsSync(OUTPUT_PATH)) {
+    try {
+      const existing = JSON.parse(readFileSync(OUTPUT_PATH, 'utf-8'))
+      if (JSON.stringify(existing.events) === JSON.stringify(output.events)) {
+        console.log('No changes detected. File not updated.')
+        return
+      }
+    } catch {
+      // Can't compare, just write
     }
   }
 
   writeFileSync(OUTPUT_PATH, json, 'utf-8')
-  console.log(`Wrote ${output.length} events to ${OUTPUT_PATH}`)
+  console.log(`Wrote ${merged.length} events to ${OUTPUT_PATH}`)
+  console.log(`  New events: ${newCount}`)
+  console.log(`  Updated events: ${updatedCount}`)
+  console.log(`  Preserved historical: ${merged.length - newCount}`)
 
   // Print summary
   const now = new Date()
-  const upcoming = output.filter((e) => new Date(e.start) > now)
-  const past = output.filter((e) => new Date(e.start) <= now)
+  const upcoming = merged.filter((e) => new Date(e.start) > now)
+  const past = merged.filter((e) => new Date(e.start) <= now)
   console.log(`  Upcoming: ${upcoming.length}`)
   console.log(`  Past: ${past.length}`)
 
