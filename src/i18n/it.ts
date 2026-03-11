@@ -64,9 +64,9 @@ const it = {
     talksGiven: 'Talk Presentati',
     readyToJoin: 'Vuoi Unirti?',
     readyToJoinDesc:
-      "Che tu sia uno sviluppatore esperto o alle prime armi, c'e' un posto per te a TorinoJS.",
+      "Che tu sia uno sviluppatore esperto o alle prime armi, c'è un posto per te a TorinoJS.",
     joinCommunity: 'Unisciti alla Community',
-    learnMore: 'Scopri di Piu\'',
+    learnMore: 'Scopri di Più',
     nextEvent: 'Prossimo Evento',
     happeningToday: 'Oggi!',
     happeningTomorrow: 'Domani!',
@@ -107,12 +107,12 @@ const it = {
       "Una community di sviluppatori appassionati che esplorano insieme l'ecosistema JavaScript.",
     ourStory: 'La Nostra Storia',
     ourStoryP1:
-      'TorinoJS e\' stata fondata nel 2015 da un gruppo di appassionati JavaScript a Torino che volevano creare uno spazio dove gli sviluppatori potessero incontrarsi, condividere conoscenze e costruire relazioni attorno alle tecnologie che amano.',
+      "TorinoJS è stata fondata nel 2015 da un gruppo di appassionati JavaScript a Torino che volevano creare uno spazio dove gli sviluppatori potessero incontrarsi, condividere conoscenze e costruire relazioni attorno alle tecnologie che amano.",
     ourStoryP2:
-      'Quello che e\' iniziato come piccoli incontri informali e\' cresciuto fino a diventare una community vibrante di centinaia di sviluppatori. I nostri meetup mensili #jsNight sono diventati un punto di riferimento della scena tech torinese, attraendo talenti locali e speaker internazionali.',
+      "Quello che è iniziato come piccoli incontri informali è cresciuto fino a diventare una community vibrante di centinaia di sviluppatori. I nostri meetup mensili #jsNight sono diventati un punto di riferimento della scena tech torinese, attraendo talenti locali e speaker internazionali.",
     ourMission: 'La Nostra Missione',
     ourMissionP:
-      'Crediamo che il modo migliore per imparare sia condividere. La nostra missione e\' creare un ambiente inclusivo e accogliente dove sviluppatori di tutti i livelli possano:',
+      "Crediamo che il modo migliore per imparare sia condividere. La nostra missione è creare un ambiente inclusivo e accogliente dove sviluppatori di tutti i livelli possano:",
     missionLearn:
       "Imparare nuove tecnologie, pattern e best practice nell'ecosistema JavaScript",
     missionShare:
@@ -127,7 +127,7 @@ const it = {
     grow: 'Crescere',
     whatWeCover: 'Cosa Copriamo',
     whatWeCoverP:
-      'I nostri eventi spaziano su tutto l\'ecosistema JavaScript e oltre:',
+      "I nostri eventi spaziano su tutto l'ecosistema JavaScript e oltre:",
     topicFrontend: 'Frontend framework: React, Vue, Angular, Svelte, Solid',
     topicBackend: 'Backend: Node.js, Deno, Bun, Express, Fastify',
     topicFullstack: 'Full-stack: Next.js, Nuxt, TanStack Start, Remix',
@@ -197,10 +197,10 @@ const it = {
       'Aiuta i nuovi arrivati a iniziare con lo sviluppo JavaScript. Condividi la tua esperienza e guida la prossima generazione di sviluppatori.',
     spreadWord: 'Passa Parola',
     spreadWordDesc:
-      'Parla di TorinoJS ai tuoi amici, colleghi e sviluppatori. Piu\' la nostra community e\' diversificata, piu\' ne beneficiamo tutti.',
+      "Parla di TorinoJS ai tuoi amici, colleghi e sviluppatori. Più la nostra community è diversificata, più ne beneficiamo tutti.",
     joinNextEvent: 'Unisciti al Prossimo Evento',
     joinNextEventDesc:
-      'Il modo migliore per iniziare e\' presentarsi. Vieni a salutarci al prossimo #jsNight!',
+      "Il modo migliore per iniziare è presentarsi. Vieni a salutarci al prossimo #jsNight!",
     viewUpcoming: 'Vedi Prossimi Eventi su GitHub',
 
     // Discussions section
@@ -219,9 +219,9 @@ const it = {
 
     // Sort options
     sortByVotes: 'Per voti',
-    sortByNewest: 'Piu\' recenti',
+    sortByNewest: 'Più recenti',
     sortByOldest: 'Meno recenti',
-    sortByActivity: 'Ultima attivita\'',
+    sortByActivity: 'Ultima attività',
     sortLabel: 'Ordina',
 
     // Section titles (from GitHub labels)
@@ -230,7 +230,7 @@ const it = {
     sectionWorkshopProposal: 'Proposte di Workshop',
     sectionWorkshopProposalDesc: 'Proponi o vota un workshop pratico su un argomento specifico.',
     sectionOpsEnhancement: 'Miglioramenti Operativi',
-    sectionOpsEnhancementDesc: 'Proposte per migliorare le operazioni e l\'organizzazione di TorinoJS.',
+    sectionOpsEnhancementDesc: "Proposte per migliorare le operazioni e l'organizzazione di TorinoJS.",
     sectionHelpWanted: 'Richieste di Aiuto',
     sectionHelpWantedDesc: 'Hai bisogno di aiuto sul tuo progetto? Chiedi alla community!',
     sectionQuestion: 'Domande',
@@ -238,5 +238,10 @@ const it = {
   },
 } as const
 
-export type Translations = typeof it
+/** Recursively widen string literals to `string` while preserving the object shape. */
+type DeepStringify<T> = {
+  [K in keyof T]: T[K] extends string ? string : DeepStringify<T[K]>
+}
+
+export type Translations = DeepStringify<typeof it>
 export default it
