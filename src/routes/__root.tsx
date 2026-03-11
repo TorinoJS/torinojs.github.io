@@ -6,20 +6,25 @@ import {
   HeadContent,
   Scripts,
   useRouterState,
+  ErrorComponent,
+  Link,
 } from '@tanstack/react-router'
 import { Header } from '~/components/Header'
 import { Footer } from '~/components/Footer'
 import { LocaleContext } from '~/i18n/context'
+import type { Locale } from '~/i18n'
 import {
   getLocaleFromPath,
   getTranslations,
+  getAlternateLocalePath,
   LOCALE_HTML_LANG,
   LOCALE_OG,
-  getAlternateLocalePath,
 } from '~/i18n'
 import { Progress } from 'react-kino'
 
 import appCss from '~/styles/app.css?url'
+
+const SITE_ORIGIN = 'https://torino.js.org'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -39,9 +44,7 @@ export const Route = createRootRoute({
           'Eventi async su JavaScript, Node.js, IoT e tecnologie web open source a Torino, Italia.',
       },
       { property: 'og:type', content: 'website' },
-      { property: 'og:locale', content: 'it_IT' },
-      { property: 'og:locale:alternate', content: 'en_US' },
-      { property: 'og:url', content: 'https://torino.js.org' },
+      { property: 'og:url', content: SITE_ORIGIN },
       {
         property: 'og:image',
         content:
@@ -66,7 +69,61 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  errorComponent: RootErrorComponent,
+  notFoundComponent: NotFoundComponent,
 })
+
+function RootErrorComponent({ error }: { error: unknown }) {
+  const message =
+    error instanceof Error ? error.message : 'An unexpected error occurred'
+
+  return (
+    <div style={{ padding: '2rem', textAlign: 'center', maxWidth: '600px', margin: '4rem auto' }}>
+      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Something went wrong</h1>
+      <p style={{ color: '#888', marginBottom: '1.5rem' }}>{message}</p>
+      <ErrorComponent error={error} />
+      <button
+        onClick={() => window.location.reload()}
+        style={{
+          marginTop: '1rem',
+          padding: '0.75rem 1.5rem',
+          background: '#f9e64f',
+          color: '#000',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          fontWeight: 600,
+        }}
+      >
+        Reload page
+      </button>
+    </div>
+  )
+}
+
+function NotFoundComponent() {
+  return (
+    <div style={{ padding: '2rem', textAlign: 'center', maxWidth: '600px', margin: '4rem auto' }}>
+      <h1 style={{ fontSize: '4rem', marginBottom: '0.5rem' }}>404</h1>
+      <p style={{ fontSize: '1.25rem', color: '#888', marginBottom: '2rem' }}>
+        Page not found
+      </p>
+      <Link
+        to="/"
+        style={{
+          padding: '0.75rem 1.5rem',
+          background: '#f9e64f',
+          color: '#000',
+          borderRadius: '6px',
+          textDecoration: 'none',
+          fontWeight: 600,
+        }}
+      >
+        Go to homepage
+      </Link>
+    </div>
+  )
+}
 
 function RootComponent() {
   const routerState = useRouterState()
@@ -93,10 +150,26 @@ function RootDocument({
   children,
   lang,
 }: Readonly<{ children: ReactNode; lang: string }>) {
+  const routerState = useRouterState()
+  const pathname = routerState.location.pathname
+  const locale = getLocaleFromPath(pathname)
+  const alternateLocale: Locale = locale === 'it' ? 'en' : 'it'
+  const alternatePath = getAlternateLocalePath(pathname, alternateLocale)
+  const canonicalUrl = `${SITE_ORIGIN}${pathname === '/' ? '' : pathname}`
+  const alternateUrl = `${SITE_ORIGIN}${alternatePath === '/' ? '' : alternatePath}`
+
   return (
     <html lang={lang}>
       <head>
         <HeadContent />
+        {/* Dynamic OG locale tags */}
+        <meta property="og:locale" content={LOCALE_OG[locale]} />
+        <meta property="og:locale:alternate" content={LOCALE_OG[alternateLocale]} />
+        {/* Canonical and hreflang for SEO */}
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hrefLang={LOCALE_HTML_LANG[locale]} href={canonicalUrl} />
+        <link rel="alternate" hrefLang={LOCALE_HTML_LANG[alternateLocale]} href={alternateUrl} />
+        <link rel="alternate" hrefLang="x-default" href={SITE_ORIGIN} />
       </head>
       <body>
         {children}
