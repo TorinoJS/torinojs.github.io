@@ -24,8 +24,8 @@ import {
   useGitHubIssues,
   SECTION_CONFIGS,
 } from '~/hooks/useGitHubIssues'
-import { getConnectContacts, getProposeTalkUrl, type Contact } from '~/config/contacts'
-import type { Translations } from '~/i18n'
+import { getConnectContacts, type Contact } from '~/config/contacts'
+import { localePath, type Translations } from '~/i18n'
 
 /**
  * Map a contact type to its Phosphor icon component (size 40, duotone).
@@ -107,7 +107,7 @@ function useSectionI18n() {
 }
 
 export function CommunityPage() {
-  const { t } = useLocale()
+  const { locale, t } = useLocale()
   const [activeTab, setActiveTabState] = useState<CommunityTab>(getTabFromHash)
   const { issues, loading, repoUrl, getIssuesByLabel } = useGitHubIssues()
   const sectionI18n = useSectionI18n()
@@ -298,9 +298,7 @@ export function CommunityPage() {
         <h2>{t.community.joinNextEvent}</h2>
         <p>{t.community.joinNextEventDesc}</p>
         <a
-          href={getProposeTalkUrl()}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={localePath('/events', locale)}
           className="btn btn-primary"
         >
           <Calendar size={18} />
