@@ -27,7 +27,7 @@ export function NextEventBanner() {
       <div className={`next-event-banner ${today ? 'next-event-banner--today' : ''}`}>
         <div className="next-event-banner-inner">
           <div className="next-event-label">
-            <CalendarCheck size={18} weight="duotone" />
+            <CalendarCheck size={18} />
             <span>{t.home.nextEvent}</span>
             {today && <span className="next-event-badge">{t.home.happeningToday}</span>}
             {tomorrow && <span className="next-event-badge next-event-badge--tomorrow">{t.home.happeningTomorrow}</span>}
