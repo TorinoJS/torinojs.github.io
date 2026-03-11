@@ -1,16 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { EventsPage } from '~/pages/EventsPage'
+import { getTranslations } from '~/i18n'
+
+const t = getTranslations('it')
 
 export const Route = createFileRoute('/events')({
   component: EventsPage,
   head: () => ({
     meta: [
       {
-        title: 'Eventi - TorinoJS',
+        title: t.meta.eventsTitle,
       },
       {
         name: 'description',
-        content: 'Prossimi eventi e eventi passati di TorinoJS: meetup e workshop a Torino.',
+        content: t.meta.eventsDescription,
       },
     ],
   }),

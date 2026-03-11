@@ -1,16 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AboutPage } from '~/pages/AboutPage'
+import { getTranslations } from '~/i18n'
+
+const t = getTranslations('it')
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
   head: () => ({
     meta: [
       {
-        title: 'Chi Siamo - TorinoJS',
+        title: t.meta.aboutTitle,
       },
       {
         name: 'description',
-        content: 'Scopri TorinoJS, la community JavaScript di Torino, Italia.',
+        content: t.meta.aboutDescription,
       },
     ],
   }),
