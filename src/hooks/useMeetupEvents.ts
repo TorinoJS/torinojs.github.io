@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 export interface MeetupEvent {
   id: string
@@ -66,26 +66,21 @@ export function useMeetupEvents(): UseMeetupEventsReturn {
     return () => { cancelled = true }
   }, [])
 
-  if (!data) {
-    return {
-      upcoming: [],
-      past: [],
-      nextEvent: null,
-      loading,
-      error,
-      groupUrl: 'https://www.meetup.com/torino-js/',
-      lastUpdated: null,
-    }
-  }
+  const upcoming = useMemo(() => {
+    if (!data) return []
+    const now = new Date()
+    return data.events
+      .filter((e) => new Date(e.start) > now)
+      .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+  }, [data])
 
-  const now = new Date()
-  const upcoming = data.events
-    .filter((e) => new Date(e.start) > now)
-    .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
-
-  const past = data.events
-    .filter((e) => new Date(e.start) <= now)
-    .sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())
+  const past = useMemo(() => {
+    if (!data) return []
+    const now = new Date()
+    return data.events
+      .filter((e) => new Date(e.start) <= now)
+      .sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())
+  }, [data])
 
   return {
     upcoming,
@@ -93,8 +88,8 @@ export function useMeetupEvents(): UseMeetupEventsReturn {
     nextEvent: upcoming.length > 0 ? upcoming[0] : null,
     loading,
     error,
-    groupUrl: data.groupUrl,
-    lastUpdated: data.lastUpdated,
+    groupUrl: data?.groupUrl ?? 'https://www.meetup.com/torino-js/',
+    lastUpdated: data?.lastUpdated ?? null,
   }
 }
 
