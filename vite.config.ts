@@ -20,18 +20,6 @@ export default defineConfig({
         retryDelay: 1000,
         maxRedirects: 5,
         failOnError: true,
-        routes: [
-          // Italian (default) routes
-          '/',
-          '/events',
-          '/about',
-          '/community',
-          // English routes
-          '/en',
-          '/en/events',
-          '/en/about',
-          '/en/community',
-        ],
         onSuccess: ({ page }) => {
           console.log(`Prerendered: ${page.path}`)
         },
