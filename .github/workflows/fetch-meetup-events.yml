@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: feature/tanstack
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
