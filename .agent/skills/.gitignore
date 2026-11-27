@@ -1,0 +1,8 @@
+# pnpm
+/migrate-from-react-router
+/react-router
+/react-start
+/router-query
+# pnpm end
+
+**/routeTree.gen.ts

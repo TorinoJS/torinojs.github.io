@@ -1,0 +1,10 @@
+allowBuilds:
+  esbuild: true
+permissions:
+  '@tanstack/react-router':
+    skills: [router-query, migrate-from-react-router, react-router]
+  '@tanstack/react-start':
+    skills: [react-start]
+skills:
+  dirs:
+    - .agent/skills
