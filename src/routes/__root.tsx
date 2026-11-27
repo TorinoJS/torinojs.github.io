@@ -47,8 +47,7 @@ export const Route = createRootRoute({
       { property: 'og:url', content: SITE_ORIGIN },
       {
         property: 'og:image',
-        content:
-          'https://raw.githubusercontent.com/TorinoJS/discussion/master/torinojs-logo.svg.png',
+        content: `${SITE_ORIGIN}/torinojs-logo.svg`,
       },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
